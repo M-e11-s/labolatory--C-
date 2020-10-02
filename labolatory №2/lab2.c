@@ -97,7 +97,7 @@ int main()
         printf ("S=%.2f \n", S);
 
         float h;
-        h = (2*S)/c1;
+        h = (2*S)/a1;
         printf("h=%.2f \n", h);
 
 
