@@ -14,15 +14,16 @@
             printf("Input c: ");
             scanf("%f\n", &c);
 
-            D = pow(b,2)-(4*(a*c));
+            D = (pow(b,2)-(4*(a*c)));
+            printf("D=%f", D);
                     if (a==0)
                     {
                         x= -(c/b);
-                        printf("x=%f\n", x);
+                        printf("x=%.2f\n", x);
 
                     }
 
-                    else        if (a!=0 && D>0)
+                    else        if ( D>0)
                                 {
                                     x1=(-b + sqrt(D))/(2*a);
                                     printf("x1=%.1f\n", x1);
