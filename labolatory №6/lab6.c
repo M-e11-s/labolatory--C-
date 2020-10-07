@@ -8,7 +8,7 @@ int main ()
         scanf("%f", &x);
         printf("Input Y: ");
         scanf("%f", &y);
-            if (x<-1 && y<0 || x>-1 && x<0 && y<1 && y>0 || x<0 && y>1 || x<1 && x>0 && y<0)
+            if (x<-1 && y<0 && -x+y<-1 || x>-1 && x<0 && y<1 && y>0 && -x+y<-1 || x<0 && y>1 && -x-y>-1 || x<1 && x>0 && y<0 && x+y<1 || x>1 && y>1 && -x-y>-1 && -x+y<1 )
             {
                 printf("True\n\n\n");
             }
@@ -20,7 +20,6 @@ int main ()
         scanf("%d", &num);
         remainder = num%2;
         remainder==0? printf("num/2\n\n\n"):printf("num not /2\n\n\n");
-        
 
 
 
