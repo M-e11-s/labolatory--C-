@@ -22,6 +22,7 @@ int Menu()
 
 int main()
 {
+	srand(time(NULL));
 	int num;
 	do {
 		num = Menu();
@@ -88,7 +89,7 @@ int main()
 
 			case 3:
 			{
-				int A[1000];
+				int A[10000];
 				int k;
 				int N;
 				int i;
@@ -102,7 +103,7 @@ int main()
 
 				if (k>1 && k<4 && k<N)
 				{
-					for (i=1;i<=N;i++)
+					for (i=0;i<N;i++)
 					{
 						A[i]=-500+rand()%1001;
 						printf("A[%d]: %d\t",i,A[i]);
@@ -113,16 +114,17 @@ int main()
 				for (j=1;j<=k;j++)
 				{
 					buffer = A[1];
-					for (i=1;i<N;i++)
+					for (i=0;i<N;i++)
 					{
 						A[i]=A[i+1];
 					}
 					A[N-1]=buffer;
 				}
-				for (i=1;i<=N;i++)
+				for (i=0;i<N;i++)
 				{
-					printf("A[%d]: %d\t",i, A[i] );
-					if (i%5==0) printf("\n");
+					printf("A[%d]: %d\t",i+1, A[i] );
+
+					if (i+1%5==0) printf("\n");
 				}
 				break;
 
@@ -137,18 +139,132 @@ int main()
 				int min;
 				printf("Please input N: ");
 				scanf("%d",&N);
-				for (i=1;i<=N;i++)
+				for (i=0;i<N;i++)
 					{
 						A[i]=-500+rand()%1001;
-						printf("A[%d]: %d\t",i,A[i]);
-						if (i%5==0) printf("\n");
+						printf("A[%d]: %d\t",i+1,A[i]);
+						if (i+1%5==0) printf("\n");
 					}
 				printf("\n");
-				
-				for (i=1;i<=N;i++)
+				do 
 				{
-					printf("A[%d]: %d\t", i, A[i] );
-					if (i%5==0) printf("\n");
+					fl=0;
+					for (i=1;i<N;i++)
+					{
+						if(A[i-1]<A[i])
+						{
+							min = A[i]; 
+							A[i] = A[i-1];
+							A[i-1]=min;
+							fl=1;
+						}
+					}
+				}while(fl);
+				printf("\n");
+				for (i=0;i<N;i++)
+				{
+					printf("A[%d]: %d\t ",i+1,A[i]);
+					if(i+1%5==0) printf("\n");
+				}
+
+				printf("\n");
+				break;
+			}
+
+
+
+
+
+			case 5:
+			{
+				int N;
+				int A[1000]={5,5,6,6,6,234,353,786,7,7,7,10,34};
+				int fl;
+				int B[1000];
+				int score=0;
+				int min;
+				int j=0;
+				int i;
+				int change_b;
+				int b=0;
+				printf("Please input N:");
+				scanf("%d", &N);
+
+				for (i=0;i<N;i++)
+				{
+					printf("A[%d]: %d\t",i+1,A[i]);
+					b++;
+					if (b%5==0) printf("\n");
+				}
+				printf("\n");
+
+
+				do 
+				{
+					fl=0;
+					for (i=1;i<N;i++)
+					{
+						if(A[i-1]>A[i])
+						{
+							min = A[i]; 
+							A[i] = A[i-1];
+							A[i-1]=min;
+							fl=1;
+						}
+					}
+				}while(fl);
+
+				printf("\n");
+				for (i=0;i<N;i++)
+				{
+					printf("A[%d]: %d\t ",i+1,A[i]);
+					b++;
+					if(b%5==0) printf("\n");
+				}
+				printf("\n");
+
+				
+				/*for (i=0;i<N;i++)
+				{
+					if(A[i]!=B[j])
+					{
+						for(j=0;j=<i;j++)
+						{
+							B[j]=A[i];
+
+						}
+					}
+				}
+
+				for (i=0;i<j;i++)
+				{
+					printf("%d\t",B[i]);
+				} */
+
+
+
+				for (i=0;i<N;i++)
+				{
+					
+					if (A[i]==A[i+1])
+					{
+						A[i]=0;
+						score++;
+					}
+				}
+
+				for (i=0;i<10;i++)
+				{
+					if (A[i]==0)
+					{
+						printf("");
+					}
+					else
+					{
+						b++;
+						if (b%5==0) printf("\n");
+						printf("%d\t",A[i] );
+					}
 				}
 				printf("\n");
 
