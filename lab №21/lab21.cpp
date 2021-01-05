@@ -14,27 +14,29 @@ void reFillArr(int arr[],int size)
   int buffer;
   for (int i=0;i<size/2;i++)
   {
-    buffer=*(arr+size-i);
+    buffer=*(arr+(size-i));
     *(arr+size-i)=*(arr+i);
     *(arr+i)=buffer;
   }
 }
 void del_el(int arr[],int size,int what_d)
 {
-  for (int i=what_d;i<size;i++)
+  for (int i=what_d-1;i<size;i++)
   {
-    *(arr+i)=*(arr+i+1);
+    *(arr+i)=*(arr+(i+1));
 
   }
+
   
 }
-void add_element(int arr,int size)
+void add_element(int arr[],int size)
 {
-  *(arr+2)=5343;
-  for (i=4;i<size;i++)
+  int buffer;
+  arr[2]=5343;
+  for (int i=4;i<size;i++)
   {
-    buffer=*arr+i
-    *arr+i+1=*arr+i;
+    buffer=arr[i];
+    arr[i+1]=arr[i];
   }
 }
 
@@ -91,7 +93,7 @@ int main()
           printf("First:%p   Last:%p\t",arr,(arr+x-1));
           printf("\n");
           reFillArr(arr,x);
-          for (int i=0;i<x;i++)
+          for (int i=1;i<=x;i++)
           {
             printf("%d\t",*(arr+i) );
           }
@@ -112,7 +114,7 @@ int main()
           }
           printf("\n");
           int element;
-          printf("Del_Element ->"); scanf("%d",&element);
+          printf("Del_Element ->"); scanf("%d",&element-1);
           del_el(arr,size,element);
           for (int i=0;i<size-1;i++)
           {
@@ -129,6 +131,11 @@ int main()
           int arr[size];
           FillArr(arr,size);
           add_element(arr,size);
+          for (int i=0;i<=size-1;i++)
+          {
+            printf("%d\t",*(arr+i) );
+          }
+          printf("\n");
           break;
         }
     }
