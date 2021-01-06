@@ -9,6 +9,7 @@
 int Menu()
 {
   int num;
+  printf("\n");
   printf("------ Menu --------\n");
   printf("1)Task_1\n");
   printf("2)Task_2\n");
@@ -277,7 +278,7 @@ int main()
               int index_1,index_2;
               int k;
               int n,m;
-              int max=-100000000;
+              int max;
               int next=0;
 
 
@@ -301,32 +302,23 @@ int main()
                     printf("\n");
                   }
                 }
+                max=A[0][0];
+                index_1=0;
+                index_2=0;
                 printf("\n\n");
-                for (c=0;c<m;c++)
-                {
-                  for(l=n-1;l<=n && l<=k;l++)
-                  {
-                    if(A[c][l]>max)
-                    {
-                      max=A[c][l];
-                      index_1=c;
-                      index_2=l;
-                    }
-                  }
-                  for (l=0;l>=n && l>k; l--)
-                  {
-                    if(A[c][l]>max)
-                    {
-                      max=A[c][l];
-                      index_1=c;
-                      index_2=l;
-                    }
-                  }
-
-                }
-                printf("max= %d  A[%d,%d]\n",max,index_1, index_2 );    
-              }
-
+               for (c=0;c<m;c++)
+               	for (l=0;l<n;l++)
+               	{
+               		if (max<A[c][l])
+               		{
+               			max=A[c][l];
+               			index_1=c;
+               			index_2=l;
+               		}
+               	}
+               	printf("max: %d index[%d %d]\t",max,index_1+1,index_2+1 );
+               	break;
+            }
 
 
 
