@@ -104,20 +104,26 @@ int main()
         	  printf("%d\t", arr[l][c]);
        	   	  next++;
         	  if (next%line== 0) printf("\n\n");
-
         	}
-        for (l = 0; l < line; l++)
-        {
-        	if(arr[l][c]!=0 && 0)
-        		printf("1\n");
-        }
+        l=0;
+        c=0;
+        do{
+        	if(arr[l][c]!=0)
+        	{
+        		l++;
+        		if(l==line)
+        		{
+        			without_0++;
+        		}
+        	}
+        	else 
+        	{
+        		l=0;c++;
+        	}
+
+        }while(l!=line && c!=column);
+        printf("%d\n", without_0 );
         
-
-
-
-        printf("without_0: %d\n\n",without_0 );
-
-
         break;
 	}
 
